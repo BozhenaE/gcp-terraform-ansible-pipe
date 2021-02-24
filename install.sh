@@ -20,7 +20,7 @@ gcloud projects add-iam-policy-binding $id \
 gcloud iam service-accounts keys create $HOME/bootstrap/credentials.json \
   --iam-account acg-sg@$id.iam.gserviceaccount.com
 
-b=$(gcloud alpha billing accounts list --uri)
+b=$(gcloud alpha billing accounts list --filter=open=true --uri)
 
 gcloud alpha billing accounts projects link $id --account-id $b
 
